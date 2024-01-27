@@ -34,7 +34,7 @@ def send_email():
     file_path = "file/path/to/recipientsemail.csv"
     with open(file_path, "rb") as attachment:
         part = MIMEApplication(attachment.read(), Name="file.txt")
-        part['Content-Disposition'] = 'ClassList.csv'
+        part['Content-Disposition'] = 'ProgClubList.csv'
         message.attach(part)
 
 
