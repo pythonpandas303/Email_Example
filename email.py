@@ -22,13 +22,6 @@ def get_recipient_emails(csv_file):
         reader = csv.DictReader(csvfile)
         return [row['email'] for row in reader]
 
-subject = "Subject of the email"
-message = MIMEMultipart()
-message["From"] = sender_email
-message["To"] = ", ".join(get_recipient_emails(csv_file))  
-message["Subject"] = subject
-message.attach(MIMEText(email_body, "plain"))
-
 def send_email():
     subject = "Subject of the email"
     message = MIMEMultipart()
@@ -41,7 +34,7 @@ def send_email():
     file_path = "file/path/to/recipientsemail.csv"
     with open(file_path, "rb") as attachment:
         part = MIMEApplication(attachment.read(), Name="file.txt")
-        part['Content-Disposition'] = f'attachment; filename="{file_path}"'
+        part['Content-Disposition'] = 'ClassList.csv'
         message.attach(part)
 
 
